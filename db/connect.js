@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb+srv://MOA2:simplePSW@cluster0.3pru0gs.mongodb.net/?retryWrites=true&w=majority'
+const connectDB = async() =>{
+    try{
+      await mongoose.connect(process.env.MONGO_URI).then(()=>console.log('Connected to MongoDB..'))
+    }
+    catch(err){
+        console.log(err).then(()=>process.exit(1))
+    }
+}
 
-//mongodb+srv://MOA:<password>@cluster0.3pru0gs.mongodb.net/?retryWrites=true&w=majority
+module.exports = connectDB;
 
-mongoose.connect(connectionString)
-        .then(()=>console.log('Connected to MongoDB..'))
-        .catch((err) => console.log(err))
-
+// mongoose.connect(connectionString)
+//         .then(()=>console.log('Connected to MongoDB..'))
+//         .catch((err) => console.log(err))

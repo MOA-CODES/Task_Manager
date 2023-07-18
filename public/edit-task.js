@@ -22,7 +22,9 @@ const showTask = async () => {
       taskCompletedDOM.checked = true
     }
   } catch (error) {
+    console.log("im here")
     console.log(error)
+
   }
 }
 
@@ -41,6 +43,7 @@ editFormDOM.addEventListener('submit', async (e) => {
       name: taskName,
       completed: taskCompleted,
     })
+    console.log(task)
 
     const { _id: taskID, completed, name } = task
 
@@ -54,6 +57,7 @@ editFormDOM.addEventListener('submit', async (e) => {
     formAlertDOM.textContent = `success, edited task`
     formAlertDOM.classList.add('text-success')
   } catch (error) {
+    console.log("im here2")
     console.error(error)
     taskNameDOM.value = tempName
     formAlertDOM.style.display = 'block'
