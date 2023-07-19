@@ -18,10 +18,11 @@ app.use(express.json())
 
 app.use('/api/v1/tasks', tasks)
 
+//other middleware
 app.use(notFound) //for routes that dont exist
 app.use(errorHmiddleware) //for handling all errors
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 connectDB();
 
