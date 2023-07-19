@@ -21,7 +21,7 @@ app.use('/api/v1/tasks', tasks)
 app.use(notFound) //for routes that dont exist
 app.use(errorHmiddleware) //for handling all errors
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 connectDB();
 
